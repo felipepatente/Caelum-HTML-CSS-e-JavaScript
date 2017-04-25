@@ -1,0 +1,260 @@
+/* Exemplo 1 */
+
+/* Isso indica que queremos selecionar todos os p que foram precedidos por algum h2 e são irmãos do subtítulo
+(ou seja, estão sob amesma tag pai). NoHTMLanterior, serão selecionados os dois últimos parágrafos (Texto
+e Mais texto). */
+
+h2 ~ p{
+  font-style: italic;
+}
+
+/*  Seleciona apenas o parágrafo imediatamente seguinte
+ao subtítulo? Ou seja, é um p irmão do h2 mas que aparece logo na sequência.
+Fazemos isso com o seletor de irmão adjacentes - adjacent sibling: */
+h2 + p {
+font-variant: small-caps;
+}
+
+
+/* Exemplo 2 */
+
+/* vai pegar só o h1 principal, filho direto de article e não os netos */
+article > h1 {
+color: blue;
+}
+
+
+/* Exemplo 3 */
+/* O seletor de negação permite escrever um seletor que pega elementos que não batem naquela regra. 
+  Ele recebe como argumento outro seletor simples (como id, classe e tags)*/
+p:not(.especial) {
+color: gray;
+}
+
+
+/* Exemplo 4 */
+li:first-child {
+  color: red;
+}
+li:last-child {
+  color: blue;
+}
+
+li:nth-child(3) { 
+  color: yellow; 
+}
+
+/* Fazendo uma lista zebrada */
+/*
+li:nth-child(2n) { 
+  color: yellow; 
+}
+
+li:nth-child(2n + 1) { 
+  color: yellow; 
+}
+*/
+
+/* Exemplo 5 */
+/* seleciona todas as âncoras que têm o atributo "href", ou seja, links */
+a:link { 
+  background-color: black;
+}
+
+/* seleciona todos os links cujo valor de "href" é um endereço já visitado */
+a:visited { 
+  background-color: blue;
+}
+
+/* seleciona o link no exato momento em que clicamos nele */
+a:active { 
+  background-color:red;
+}
+
+/* seleciona o link no exato momento em que passamos o mouse por cima dele */
+a:hover { 
+  background-color:gray;
+}
+
+/* Exemplo 6 */
+/* Deixa a primeira letra do paragrafo maior */
+p:first-letter {
+  font-size: 200%;
+}
+
+/* Seleciona a primeira linha */
+p:first-line {
+  font-style: blue;
+}
+
+/* Exemplo 7 */
+#padrao a{
+  background: white;
+}
+
+#padrao a:before {
+  content: '[ ';
+}
+
+#padrao a:after {
+  content: ' ]';
+}
+
+/* Exemplo 8 */
+div{
+  width: 100px;
+  height: 100px;
+  background-color: rgba(10,100,0,0.5);
+  margin-top: 20px;
+}
+
+
+#a{
+  /* todas as bordas arredondadas com um raio de 15px */
+  border-radius: 15px;
+}
+
+#b{
+  /*borda superior esquerda e inferior direita com 5px
+  borda superior direita e inferior esquerda com 20px*/
+  border-radius: 5px 20px;
+}
+
+#c{
+  /*borda superior esquerda com 5px
+  borda superior direita e inferior esquerda com 20px
+  borda inferior direita com 50px */
+  border-radius: 5px 20px 50px;
+}
+
+#d{
+  /*borda superior esquerda com 5px
+  borda superior direita com 20px
+  borda inferior direita com 50px 
+  bordar inferior esquerda com 100px */
+  border-radius: 5px 20px 50px 100px;
+}
+
+
+/* Exemplo 9 */
+/* Sombras em textos com text-shadow. Sua sintaxe recebe o deslocamento da sombra e sua cor: */
+.p1 {
+  text-shadow: 10px 10px red;
+}
+
+/* Ou ainda receber um grau de espalhamento (blur): */ 
+.p2{
+  text-shadow: 10px 10px 5px red;
+}
+
+/*É possível até passar mais de uma sombra ao mesmo tempo para o mesmo elemento:*/
+.p3{
+  text-shadow: 10px 10px 5px red, -5px -5px 4px red;
+}
+
+
+/* Exemplo 10 */
+/* podemos colocar sombras em qualquer elemento com box-shadow. A sintaxe é parecida com a do text-shadow: */
+#aa{
+  box-shadow: 20px 20px black;
+}
+
+/* Podemos ainda passar um terceiro valor com o blur: */
+#bb{
+  box-shadow: 20px 20px 20px black;
+  margin-top: 50px;
+}
+
+/* Diferentemente do text-shadow, o box-shadow suporta ainda mais um valor que faz a sombra aumentar ou diminuir: */
+#cc{
+  box-shadow: 20px 20px 20px 30px black;
+  margin-top: 50px;
+  margin-bottom: 65px;
+}
+
+/* Por fim, é possível usar a keyword inset para uma borda interna ao elemento: */
+#dd{
+  box-shadow: inset 0 0 40px black;
+}
+
+/* Exemplo 11 */
+.linear {
+  background: linear-gradient(white, blue);
+}
+.radial {
+  background: radial-gradient(white, blue);
+}
+.gradiente {
+  background: linear-gradient(45deg, #f0f9ff 0%, #cbebff 47%, #a1dbff 100%);
+}
+
+/* Exemplo 12 */
+#evento {
+  position: relative;
+  top: 0;
+}
+#evento:hover {
+  left: 200px;
+  -webkit-transition: all 2s linear;
+  background-color: red;
+
+}
+
+/* Exemplo 13 */
+ #horizontal:hover {
+  /* Move o elemento no eixo horizontal */
+  transform: translateX(50px);
+}
+
+#vertical:hover {
+  /* Move o elemento no eixo vertical */
+  transform: translateY(-20px);
+}
+
+#doisEixos:hover {
+  /* Move o elemento nos dois eixos (X, Y) */
+  transform: translate(40px, -20px);
+}
+
+#rotaciona:hover {
+  transform: rotate(-10deg);
+}
+
+#escala:hover {
+  /* Alterar a escala total do elemento */
+  transform: scale(1.2);
+}
+
+#escalaVerticalHorizontal:hover {
+  /* Alterar a escala vertical e horizontal do elemento */
+  transform: scale(1, 0.6);
+}
+
+#distorcerHorizontal:hover {
+  /* Distorcer o elemento no eixo horizontal */
+  transform: skewX(10deg);
+}
+
+#distorcerVertical:hover {
+  /* Distorcer o elemento no eixo vertical */
+  transform: skewY(10deg);
+}
+
+#combinado:hover{
+ transform: rotate(10deg) scale(1.5, 1.5);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

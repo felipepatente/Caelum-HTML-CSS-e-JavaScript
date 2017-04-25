@@ -1,0 +1,10 @@
+.quadrado {
+  background: green;
+  height: 200px;
+  width: 200px;
+}
+.absoluto {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+}
